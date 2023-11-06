@@ -17,9 +17,10 @@ const TodoForm = () => {
             // queryClient.invalidateQueries({
             //     queryKey: ["todos"]
             // })
-
+            console.log(addTodo);
             // Approach 2: Updating the data in cache
             queryClient.setQueryData<Todo[]>(['todos'], todos => [saveTodo, ...(todos || [])])
+            if (ref.current) ref.current.value = ""
         },
 
     })
@@ -43,7 +44,7 @@ const TodoForm = () => {
                     <input ref={ref} className="form-control" />
                 </div>
                 <div className="col">
-                    <button className="btn btn-primary" type="submit">Add</button>
+                    <button className="btn btn-primary" type="submit">{addTodo.isPending ? "Adding..." : "Add"}</button>
                 </div>
             </form>
         </>
