@@ -1,5 +1,6 @@
 import './App.css'
 import PostsList from './Components/PostsList';
+import TodoForm from './Components/TodoForm';
 import TodoList from './Components/TodoList'
 import {
   QueryClient,
@@ -14,6 +15,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
+            <TodoForm />
             <TodoList />
           </div>
           <div className="col-md-6">
